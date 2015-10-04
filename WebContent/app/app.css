@@ -1,0 +1,82 @@
+@CHARSET "UTF-8";
+
+#ElectricalTable {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#ElectricalTable .check {
+	text-align: center;
+}
+
+#ElectricalTable .numInput {
+	text-align: right;
+	width: 3em;
+}
+
+#ElectricalTable button {
+	background: olive;
+	background-image: -webkit-linear-gradient(top, olive, #2980b9);
+	background-image: -moz-linear-gradient(top, olive, #2980b9);
+	background-image: -ms-linear-gradient(top, olive, #2980b9);
+	background-image: -o-linear-gradient(top, olive, #2980b9);
+	background-image: linear-gradient(to bottom, olive, #2980b9);
+	-webkit-border-radius: 14;
+	-moz-border-radius: 14;
+	border-radius: 5px;
+	font-family: Georgia;
+	color: #ffffff;
+	font-size: inherit;
+	padding: 1px 2px 1px 2px;
+	text-decoration: none;
+}
+
+#ElectricalTable button:hover {
+	background: #3cb0fd;
+	background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+	text-decoration: none;
+}
+
+#ElectricalTable input, #ElectricalTable select {
+	font-size: 1em;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom-color: gray;
+	outline: 0px;
+	text-align: center;
+}
+
+#ElectricalTable input, #ElectricalTable select, #ElectricalTable tbody {
+	background-color: silver;
+	color: green;
+}
+
+#ElectricalTable thead {
+	font-size: 1.1em;
+	text-align: left;
+	padding-top: 2px;
+	padding-bottom: 1px;
+	background-color: olive;
+	color: white;
+}
+
+#ElectricalTable tbody {
+	font-size: 1em;
+	text-align: left;
+	padding-bottom: 1px;
+}
+
+#ElectricalTable tfoot {
+	font-size: 1.2em;
+	text-align: left;
+	padding-top: 2px;
+	padding-bottom: 1px;
+	background-color: olive;
+	color: white;
+}

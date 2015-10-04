@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="RenovationCalculatorApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>Renovation Calculator</title>
+		<link rel="stylesheet" href="app/app.css">
+	</head>
+	<body>
+		<div ng-controller="ElectricalController" ng-init="init()">
+			<table id="ElectricalTable">
+				<thead>
+					<tr>
+						<th class="check">
+							<input type="checkbox" ng-model="checked" ng-change="toggleChecks()" ng-hide="rows.length == 0">
+						</th>
+						<th>Electrical Component Installation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="row in rows">
+						<td class="check">
+							<input type="checkbox" ng-model="row.checked" ng-change="onRowChecked()">
+						</td>
+						<td>
+							Installing 
+							<input class="numInput" type="number" size="3" placeholder="Quantity" ng-model="row.qty">
+							<select ng-model="row.tid" ng-if="row.componentTypes.length > 0">
+								<option ng-repeat="t in row.componentTypes" value="{{t.tid}}">{{t.name}}</option>
+							</select>
+							<select ng-model="row.component">
+								<option ng-repeat="component in data.components" value="{{component}}">
+									{{row.qty > 1 ? component.plural : component.name}}
+								</option>
+							</select>
+							in 
+							<select ng-model="row.rid">
+								<option ng-repeat="room in data.rooms" value="{{room.rid}}">{{room.name}}</option>
+							</select>
+							{{row.qty > 1 ? "cost" : "costs"}} between ${{row.minCost}} to ${{row.maxCost}}
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td>
+							<button ng-click="addRow()">Add</button>
+							<button ng-click="removeRows()" ng-show="anyChecked()">Remove</button>
+						</td>
+						<td>
+							<div ng-if="rows.length > 0">
+							Total Cost is between ${{minTotalCost()}} to ${{maxTotalCost()}}
+							</div>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+		
+		<script src="lib/angular.min.js"></script>
+		<script src="app/app.js"></script>
+		<script src="app/controller.js"></script>
+	</body>
+</html>

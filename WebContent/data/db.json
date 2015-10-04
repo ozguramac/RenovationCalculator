@@ -1,0 +1,51 @@
+{"rooms": 
+	[{"rid": "0", "name": "Kitchen"}
+	,{"rid": "1", "name": "Dining Area"}
+	,{"rid": "2", "name": "Hallway"}
+	,{"rid": "3", "name": "Big Bathroom"}
+	,{"rid": "4", "name": "Small Bathroom"}
+	,{"rid": "5", "name": "Kids Room"}
+	,{"rid": "6", "name": "Guest Room"}
+	,{"rid": "7", "name": "Master Bedroom"}
+	]
+,"components":
+	[{"cid": "0", "name": "Vent", "plural": "Vents"}
+	,{"cid": "1", "name": "Pendant", "plural": "Pendants"}
+	,{"cid": "2", "name": "Recessed Light", "plural": "Recessed Lights"}
+	,{"cid": "3", "name": "Light Switch", "plural": "Light Switches"
+		, "types":
+			[{"tid": "0", "name": "Regular"}
+			,{"tid": "1", "name": "Dimmer"}
+			,{"tid": "2", "name": "Triple"}
+			]
+	 }
+	,{"cid": "4", "name": "GFI outlet", "plural": "GFI outlets"}
+	,{"cid": "5", "name": "Socket outlet", "plural": "Socket outlets"
+		, "types":
+			[{"tid": "0", "name": "Regular"}
+			,{"tid": "1", "name": "Triple"}
+			]
+	 }
+	,{"cid": "6", "name": "Cable", "plural": "Cables"}
+	,{"cid": "7", "name": "Under Cabinet Light", "plural": "Under Cabinet Lights"}
+	,{"cid": "8", "name": "In Unit Service Panel", "plural": "In Unit Service Panels"}
+	,{"cid": "9", "name": "Smoke Detector", "plural": "Smoke Detectors"}
+	,{"cid": "10", "name": "CMD Detector", "plural": "CMD Detectors"}
+	]
+,"pricing":
+	[{"cid": "0", "min": "50", "max": "100"}
+	,{"cid": "1", "min": "20", "max": "50"}
+	,{"cid": "2", "min": "15", "max": "35"}
+	,{"cid": "3", "tid": "0", "min": "10", "max": "20"}
+	,{"cid": "3", "tid": "1", "min": "15", "max": "40"}
+	,{"cid": "3", "tid": "2", "min": "20", "max": "50"}
+	,{"cid": "4", "min": "25", "max": "35"}
+	,{"cid": "5", "tid": "0", "min": "10", "max": "20"}
+	,{"cid": "5", "tid": "1", "min": "30", "max": "40"}
+	,{"cid": "6", "min": "5", "max": "15"}
+	,{"cid": "7", "min": "15", "max": "35"}
+	,{"cid": "8", "min": "25", "max": "45"}
+	,{"cid": "9", "min": "10", "max": "15"}
+	,{"cid": "10", "min": "20", "max": "45"}
+	]
+}
