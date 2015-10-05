@@ -6,7 +6,7 @@ var app = angular.module("RenovationCalculatorApp", []);
 app.factory('ElectricalData', function() {
 
 	var ElectricalData = function (findPricing) {
-		var _rid, _tid, _component, _qty = 1, _minCost = 0, _maxCost = 0;
+		var _rid = null, _tid = null, _component, _qty = 1, _minCost = 0, _maxCost = 0;
 		var _pricing;
 		
 		var _findPricing = function() {
@@ -35,7 +35,10 @@ app.factory('ElectricalData', function() {
 				_updateCost();
 			}
 			,get component() {
-				return angular.toJson(_component);
+				if (_component) {
+					return angular.toJson(_component);
+				}
+				return null;
 			}
 			,set component(c) {
 				_component = angular.fromJson(c);

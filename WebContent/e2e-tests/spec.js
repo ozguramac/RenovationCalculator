@@ -17,4 +17,6 @@ describe('Renovation Electrical Calculator', function() {
 	it('should add a new row', function() {
 		//TODO
 	});
+	
+	//TODO: More UI use cases...
 });

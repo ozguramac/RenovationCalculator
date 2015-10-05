@@ -1,30 +1,110 @@
 describe("Renovation Electrical Calculator", function() {
 	beforeEach(module('RenovationCalculatorApp'));
 	
-	var $testScope, createController;
+	var dbPath = 'data/db.json';
+	var tDb = {
+		 rooms: [{rid: -55, name: "Room"}]
+		,components: [{cid: -44, name: "Component", plural: "Components", types: [{tid: 0, name: "ComponentType"}]}]
+		,pricing: [{cid: -44, tid: 0, min: 10, max: 20}]
+	};
 	
-	beforeEach(inject(function($controller) {
+	var $testScope, $httpBackend, createController;
+	
+	beforeEach(inject(function($controller, _$httpBackend_) {
+		$httpBackend = _$httpBackend_;
+		$httpBackend.when('GET', dbPath).respond(tDb);
 		$testScope = {};
 		createController = function () {
+			$httpBackend.expectGET(dbPath);
 			$controller('ElectricalController', {$scope: $testScope });
 			$testScope.init();
+			$httpBackend.flush();
 		}
 	}));
+	
+	afterEach(function() {
+		$httpBackend.verifyNoOutstandingExpectation();
+		$httpBackend.verifyNoOutstandingRequest();
+	});
 	
 	describe('$scope.init', function() {
 		it('initializes electrical controller scope', function() {
 			createController();
-			expect($testScope.data).toEqual({});
+			expect($testScope.data).toEqual(tDb);
 			expect($testScope.rows.length).toEqual(1);
 		});
 	});
 	
 	describe('$scope.addRow', function() {
-		it('adds another row to electrical controller', function() {
+		it('adds another row', function() {
 			createController();
 			$testScope.addRow();
 			expect($testScope.rows.length).toEqual(2);
 		});
 	});
 	
+	describe('$scope.removeRows', function() {
+		it('removes rows', function() {
+			createController();
+			$testScope.rows[0].checked = true;
+			
+			$testScope.removeRows();
+			expect($testScope.rows.length).toEqual(0);
+			expect($testScope.checked).toBeFalsy();
+		});
+	});
+	
+	describe('$scope.toggleChecks', function() {
+		it('toggles checks on all rows', function() {
+			createController();
+			$testScope.checked = true;
+			
+			$testScope.toggleChecks();
+			expect($testScope.rows[0].checked).toBeTruthy();
+		});
+	});
+	
+	describe('$scope.anyChecked', function() {
+		it('determines if any row is checked', function() {
+			createController();
+			
+			expect($testScope.anyChecked()).toBeFalsy();
+			
+			$testScope.rows[0].checked = true;
+			
+			expect($testScope.anyChecked()).toBeTruthy();
+		});
+	});
+	
+	describe('$scope.onRowChecked', function() {
+		it('toggles master check', function() {
+			createController();
+			$testScope.rows[0].checked = true;
+			
+			$testScope.onRowChecked();
+			expect($testScope.checked).toBeTruthy();
+			
+			$testScope.rows[0].checked = false;
+			$testScope.onRowChecked();
+			expect($testScope.checked).toBeFalsy();
+			
+			//TODO: Other cases...
+		});
+	});
+	
+	describe('$scope.minTotalCost', function() {
+		it('calculates minimum total cost', function() {
+			createController();
+			
+			//TODO: ...
+		});
+	});
+	
+	describe('$scope.maxTotalCost', function() {
+		it('calculates maximum total cost', function() {
+			createController();
+			
+			//TODO: ...
+		});
+	});
 });
