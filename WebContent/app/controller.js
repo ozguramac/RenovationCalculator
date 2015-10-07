@@ -29,6 +29,7 @@ app.controller("ElectricalController", function($scope, $http, ElectricalData) {
 	
 	$scope.addRow = function() {
 		$scope.rows.push(new ElectricalData(_findPricing));
+		$scope.checked = false;
 	};
 	
 	$scope.removeRows = function() {
@@ -54,17 +55,9 @@ app.controller("ElectricalController", function($scope, $http, ElectricalData) {
 	};
 	
 	$scope.onRowChecked = function() {
-		if (false == $scope.anyChecked()) {
-			$scope.checked = false;
-		}
-		else {
-			var allChecked = $scope.rows.every(function(row) {
-				return row.checked;
-			})
-			if (allChecked) {
-				$scope.checked = true;
-			}
-		}
+		$scope.checked = $scope.rows.every(function(row) {
+			return row.checked;
+		});
 	};
 	
 	$scope.minTotalCost = function() {

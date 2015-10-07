@@ -88,23 +88,42 @@ describe("Renovation Electrical Calculator", function() {
 			$testScope.onRowChecked();
 			expect($testScope.checked).toBeFalsy();
 			
-			//TODO: Other cases...
+			$testScope.rows[0].checked = true;
+			$testScope.addRow();
+			$testScope.onRowChecked();
+			expect($testScope.checked).toBeFalsy();
+			
+			$testScope.rows[1].checked = true;
+			$testScope.onRowChecked();
+			expect($testScope.checked).toBeTruthy();
+			
+			$testScope.rows[0].checked = false;
+			$testScope.onRowChecked();
+			expect($testScope.checked).toBeFalsy();
+			
+			$testScope.rows[1].checked = false;
+			$testScope.onRowChecked();
+			expect($testScope.checked).toBeFalsy();
 		});
 	});
 	
 	describe('$scope.minTotalCost', function() {
 		it('calculates minimum total cost', function() {
 			createController();
+			$testScope.rows[0].component = angular.toJson(tDb.components[0]);
+			$testScope.rows[0].qty = 6;
 			
-			//TODO: ...
+			expect($testScope.minTotalCost()).toBe(60);
 		});
 	});
 	
 	describe('$scope.maxTotalCost', function() {
 		it('calculates maximum total cost', function() {
 			createController();
+			$testScope.rows[0].component = angular.toJson(tDb.components[0]);
+			$testScope.rows[0].qty = 4;
 			
-			//TODO: ...
+			expect($testScope.maxTotalCost()).toBe(80);
 		});
 	});
 });
