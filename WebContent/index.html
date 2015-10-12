@@ -36,19 +36,19 @@
 							<select ng-model="row.rid">
 								<option ng-repeat="room in data.rooms" value="{{room.rid}}">{{room.name}}</option>
 							</select>
-							{{row.qty > 1 ? "cost" : "costs"}} between ${{row.minCost}} to ${{row.maxCost}}
+							{{row.qty > 1 ? "cost" : "costs"}} between $<span ng-bind="row.minCost"></span> to $<span ng-bind="row.maxCost"></span>
 						</td>
 					</tr>
 				</tbody>
 				<tfoot>
 					<tr>
 						<td>
-							<button ng-click="addRow()">Add</button>
-							<button ng-click="removeRows()" ng-show="anyChecked()">Remove</button>
+							<button ng-model='addBtn' ng-click="addRow()">Add</button>
+							<button ng-model='removeBtn' ng-click="removeRows()" ng-show="anyChecked()">Remove</button>
 						</td>
 						<td>
 							<div ng-if="rows.length > 0">
-							Total Cost is between ${{minTotalCost()}} to ${{maxTotalCost()}}
+							Total Cost is between $<span ng-bind="minTotalCost()"></span> to $<span ng-bind="maxTotalCost()"></span>
 							</div>
 						</td>
 					</tr>
