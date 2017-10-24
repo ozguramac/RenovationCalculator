@@ -5,15 +5,15 @@
 ## Download and Installation
 
 To begin development on this site:
-* Clone the repo: `git clone https://github.com/ozguramac/LearningTicTacToe.git`
-* [Fork, Clone, or Download on GitHub](https://github.com/ozguramac/LearningTicTacToe)
+* Clone the repo: `git clone https://github.com/ozguramac/RenovationCalculator.git`
+* [Fork, Clone, or Download on GitHub](https://github.com/ozguramac/RenovationCalculator)
 
 ### How do I get set up? ###
 
 * Summary of set up: Recommend using Intellij IDEA to build/run.
-* Configuration: Gradlew
-* How to run tests: Recommend gradle or junit launcher with VM options
-* Deployment instructions: Google App Engine
+* Configuration: Javascript Angular
+* How to run tests: Recommend Chrome browser for Jasmine and E2E runs
+* Deployment instructions: Run in Chrome browser (although most modern browsers are supported)
 
 ### Contribution guidelines ###
 
@@ -28,4 +28,4 @@ To begin development on this site:
 
 ## Copyright and License
 
-Copyright 2017 Derin Works LLC.
+Copyright 2017 [Derin Works LLC](www.derinworksllc.com)
